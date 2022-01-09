@@ -1,26 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import {Paper} from '@mui/material'
 
-function App() {
+export const App: React.FC=() =>{
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Paper variant="outlined" square>
+      <h1>Welcome to Ryan Tate codes!</h1>
+      <p>Here is where I have been honing my skills since my past job.</p>
+      </Paper>
     </div>
   );
 }
-
-export default App;
