@@ -4,6 +4,7 @@ import { WindowsBar } from './windowsBar/WindowsBar'
 import { useState } from 'react'
 import styled from 'styled-components'
 import { ChangeThemeWindow } from './changeThemeWindow/ChangeThemeWindow'
+import { ProjectIcons } from './project-icons/ProjectIcons'
 
 export const App: React.FC = () => {
   const [theme, setTheme] = useState(Themes.original)
@@ -11,6 +12,8 @@ export const App: React.FC = () => {
   return (
     <Theme theme={theme}>
       <FullPageDiv {...{ desktopBackground: theme.desktopBackground }}>
+
+      <ProjectIcons />
         {displayChangeTheme ? (
           <ChangeThemeWindow theme={theme} setTheme={setTheme} setDisplayChangeTheme={setDisplayChangeTheme}/>
         ) : null}
