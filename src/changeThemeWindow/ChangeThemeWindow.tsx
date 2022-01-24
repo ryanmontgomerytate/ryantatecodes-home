@@ -4,6 +4,7 @@ import { Window, WindowHeader, Button, Desktop, Select } from 'react95'
 import Moveable from 'react-moveable'
 import { useEffect } from 'react'
 import { Themes } from '../theme/Theme'
+import './ChangeThemeWindow.css'
 
 interface Props {
   theme: any
@@ -132,7 +133,7 @@ export const ChangeThemeWindow: React.FC<Props> = ({
           <br />
         </Window>
         {shouldDisplay ? (
-          <Moveable
+          <Moveable className='changeThemeWindow'
             target={document.querySelector('.window') as any}
             draggable={true}
             resizable={false}
