@@ -2,18 +2,31 @@ import React from 'react'
 import {
   AppBar,
   Toolbar,
-  TextField,
   Button,
   List,
   ListItem,
   Divider,
+  Panel,
 } from 'react95'
 import logoIMG from 'react95/dist/images/logo.png'
-import { ChangeThemeWindow } from '../changeThemeWindow/ChangeThemeWindow'
-import './WindowsBar.css'
 
-export const WindowsBar: React.FC = () => {
-  const [open, setOpen] = React.useState(false)
+import './WindowsBar.css'
+import { useEffect, useState } from 'react'
+
+interface Props {
+  setDisplayChangeTheme: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export const WindowsBar: React.FC<Props> = ({ setDisplayChangeTheme }) => {
+  const [open, setOpen] = useState(false)
+  const [time, setTime] = useState(new Date().toLocaleTimeString())
+
+  const updateClock = () => setTime(new Date().toLocaleTimeString())
+
+  useEffect(() => {
+    setInterval(() => updateClock(), 1000)
+    return
+  }, [])
 
   return (
     <AppBar className={'windowsBarCSS'} otherProps={{ fixed: true }}>
@@ -46,9 +59,9 @@ export const WindowsBar: React.FC = () => {
                 </span>
                 Profile
               </ListItem>
-              <ListItem onClick={(<ChangeThemeWindow />)}>
+              <ListItem onClick={() => setDisplayChangeTheme(true)}>
                 <span role="img" aria-label="🪄">
-                🪄
+                  🪄
                 </span>
                 Change Desktop Theme
               </ListItem>
@@ -69,7 +82,14 @@ export const WindowsBar: React.FC = () => {
           )}
         </div>
 
-        <TextField placeholder="Search..." width={150} />
+        <Panel
+          variant="well"
+          style={{
+            padding: '0.1rem 0.25rem',
+          }}
+        >
+          {time}
+        </Panel>
       </Toolbar>
     </AppBar>
   )

@@ -21,6 +21,7 @@ const GlobalStyles = createGlobalStyle`
   }
   body {
     font-family: 'ms_sans_serif';
+    
   }
   ${styleReset}
 `;

@@ -1,13 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
-import {
-  Window,
-  WindowContent,
-  WindowHeader,
-  Button,
-  Toolbar,
-  Panel
-} from 'react95';
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import { Window, WindowHeader, Button, Desktop, Select } from 'react95'
+import Moveable from 'react-moveable'
+import { useEffect } from 'react'
+import { Themes } from '../theme/Theme'
+
+interface Props {
+  theme: any
+  setTheme: React.Dispatch<any>
+  setDisplayChangeTheme: React.Dispatch<React.SetStateAction<boolean>>
+}
 
 const Wrapper = styled.div`
   padding: 5rem;
@@ -23,7 +25,7 @@ const Wrapper = styled.div`
     height: 16px;
     margin-left: -1px;
     margin-top: -1px;
-    transform: rotateZ(45deg);
+
     position: relative;
     &:before,
     &:after {
@@ -46,8 +48,8 @@ const Wrapper = styled.div`
     }
   }
   .window {
-    width: 400px;
-    min-height: 200px;
+    width: 300x;
+    min-height: 425px;
   }
   .window:nth-child(2) {
     margin: 2rem;
@@ -58,48 +60,96 @@ const Wrapper = styled.div`
     height: 31px;
     line-height: 31px;
     padding-left: 0.25rem;
-  }`
+  }
+`
+const initialFrame = {
+  translate: [0, 0],
+}
 
-export const ChangeThemeWindow: React.FC = () => (
+export const ChangeThemeWindow: React.FC<Props> = ({
+  theme,
+  setTheme,
+  setDisplayChangeTheme,
+}) => {
+  const [frame, setFrame] = useState(initialFrame.translate)
+  const [shouldDisplay, setShouldDisplay] = useState(false)
+  const waitUntilElementExists = () => {
+    const window = document.querySelector('.window')
+
+    if (window) {
+      setShouldDisplay(true)
+      return
+    }
+
+    setTimeout(() => waitUntilElementExists(), 1500)
+  }
+  useEffect(() => waitUntilElementExists(), [waitUntilElementExists])
+
+  return (
     <>
-      <Window resizable className='window'>
-        <WindowHeader className='window-header'>
-          <span>react95.exe</span>
-          <Button>
-            <span className='close-icon' />
-          </Button>
-        </WindowHeader>
-        <Toolbar>
-          <Button variant='menu' size='sm'>
-            File
-          </Button>
-          <Button variant='menu' size='sm'>
-            Edit
-          </Button>
-          <Button variant='menu' size='sm' disabled>
-            Save
-          </Button>
-        </Toolbar>
-        <WindowContent>
-          <p>
-            When you set &quot;resizable&quot; prop, there will be drag handle in
-            the bottom right corner (but resizing itself must be handled by you
-            tho!)
-          </p>
-        </WindowContent>
-        <Panel variant='well' className='footer'>
-          Put some useful informations here
-        </Panel>
-      </Window>
-    
-      <Window className='window'>
-        <WindowHeader active={false} className='window-header'>
-          <span>not-active.exe</span>
-          <Button>
-            <span className='close-icon' />
-          </Button>
-        </WindowHeader>
-        <WindowContent>I am not active</WindowContent>
-      </Window>
+      <Wrapper>
+        <Window
+          resizable={false}
+          className="window"
+          style={{ width: '400px', minHeight: '325px' }}
+        >
+          <WindowHeader className="window-header">
+            <span>Change Desktop Theme</span>
+            <Button onClick={() => setDisplayChangeTheme(false)}>
+              <span className="close-icon">X</span>
+            </Button>
+          </WindowHeader>
+          <div style={{ textAlign: 'center' }}>
+            The current theme is {theme.name}.
+          </div>
+          <Desktop
+            backgroundStyles={{ background: theme.desktopBackground }}
+            style={{
+              alignItems: 'center',
+              display: 'flex',
+              justifyContent: 'space-between',
+              flexDirection: 'column',
+            }}
+          />
+          <br />
+          <div
+            style={{
+              alignItems: 'center',
+              display: 'flex',
+              justifyContent: 'space-between',
+              flexDirection: 'column',
+            }}
+          >
+            <Select
+              menuMaxHeight={160}
+              width={300}
+              onChange={(selected: any) => setTheme(selected.target.value)}
+              options={Object.keys(Themes).map((key) => {
+                return { label: key, value: (Themes as any)[key] }
+              })}
+            />
+          </div>
+          <br />
+        </Window>
+        {shouldDisplay ? (
+          <Moveable
+            target={document.querySelector('.window') as any}
+            draggable={true}
+            resizable={false}
+            throttleDrag={0}
+            onDragStart={({ set }) => {
+              set(frame)
+            }}
+            onDrag={({ target, beforeTranslate }) => {
+              setFrame(beforeTranslate)
+              target.style.transform = `translate(${beforeTranslate[0]}px, ${beforeTranslate[1]}px)`
+            }}
+            onDragEnd={({ target, isDrag, clientX, clientY }) => {
+              //console.log('onDragEnd', target, isDrag)
+            }}
+          />
+        ) : null}
+      </Wrapper>
     </>
-    )
+  )
+}
