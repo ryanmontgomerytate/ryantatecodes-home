@@ -5,19 +5,25 @@ import {
   Button,
   List,
   ListItem,
-  Divider,
   Panel,
 } from 'react95'
 import logoIMG from 'react95/dist/images/logo.png'
 
 import './WindowsBar.css'
 import { useEffect, useState } from 'react'
+import { Appwiz1500, Awfxcg321303, Desk100 } from '@react95/icons'
 
 interface Props {
   setDisplayChangeTheme: React.Dispatch<React.SetStateAction<boolean>>
+  setDisplayProjects: React.Dispatch<React.SetStateAction<boolean>>
+  setDisplayAbout: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const WindowsBar: React.FC<Props> = ({ setDisplayChangeTheme }) => {
+export const WindowsBar: React.FC<Props> = ({
+  setDisplayChangeTheme,
+  setDisplayProjects,
+  setDisplayAbout,
+}) => {
   const [open, setOpen] = useState(false)
   const [time, setTime] = useState(new Date().toLocaleTimeString())
 
@@ -53,30 +59,23 @@ export const WindowsBar: React.FC<Props> = ({ setDisplayChangeTheme }) => {
               }}
               onClick={() => setOpen(false)}
             >
-              <ListItem>
-                <span role="img" aria-label="👨‍💻">
-                  👨‍💻
+              <ListItem onClick={() => setDisplayProjects(true)}>
+                <span>
+                  <Appwiz1500 variant="32x32_4" />
                 </span>
-                Profile
+                Projects
               </ListItem>
               <ListItem onClick={() => setDisplayChangeTheme(true)}>
-                <span role="img" aria-label="🪄">
-                  🪄
+                <span>
+                  <Desk100 variant="32x32_4" />
                 </span>
                 Change Desktop Theme
               </ListItem>
-              <ListItem>
-                <span role="img" aria-label="📁">
-                  📁
+              <ListItem onClick={() => setDisplayAbout(true)}>
+                <span>
+                  <Awfxcg321303 variant="32x32_4" />
                 </span>
-                My account
-              </ListItem>
-              <Divider />
-              <ListItem disabled>
-                <span role="img" aria-label="🔙">
-                  🔙
-                </span>
-                Logout
+                About Ryan
               </ListItem>
             </List>
           )}

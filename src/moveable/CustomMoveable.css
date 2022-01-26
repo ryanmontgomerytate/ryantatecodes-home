@@ -4,7 +4,7 @@
 	height: 0;
 	left: 0;
 	top: 0;
-	z-index: 3000;
+	z-index: 2999;
 }
 .iconMoveable .moveable-control-box{
     z-index: 0;
@@ -19,7 +19,7 @@
 	width: 14px;
 	height: 14px;
 	border-radius: 50%;
-	border: 2px solid transparent!important;
+	border: 1px solid blueviolet;
 	box-sizing: border-box;
 	background: transparent!important;
 	margin-top: -7px;
@@ -38,7 +38,7 @@
     background: transparent!important;
 }
 .iconMoveable .moveable-line.moveable-dashed.moveable-horizontal{
-    border-top: 1px dashed transparent!important;
+    border-top: 1px dashed blueviolet;
 }
 .iconMoveable .moveable-line.moveable-dashed.moveable-vertical{
     border-left: 1px dashed transparent!important;
