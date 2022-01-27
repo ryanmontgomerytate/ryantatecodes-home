@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { App } from './App';
-import { createGlobalStyle} from 'styled-components'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { App } from './App'
+import { createGlobalStyle } from 'styled-components'
 import ms_sans_serif from 'react95/dist/fonts/ms_sans_serif.woff2'
 import ms_sans_serif_bold from 'react95/dist/fonts/ms_sans_serif_bold.woff2'
-import { styleReset} from 'react95'
+import { styleReset } from 'react95'
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -24,14 +24,12 @@ const GlobalStyles = createGlobalStyle`
     
   }
   ${styleReset}
-`;
+`
 
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyles />
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
-);
-
-
+  document.getElementById('root'),
+)

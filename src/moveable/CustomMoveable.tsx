@@ -15,7 +15,10 @@ export const initialFrame: Frame = {
   translate: [0, 0],
 }
 
-export const CustomMoveable: React.FC<Props> = ({ selector, selectorWrapper }) => {
+export const CustomMoveable: React.FC<Props> = ({
+  selector,
+  selectorWrapper,
+}) => {
   const selected = document.querySelector(selector) as any
   const [frame, setFrame] = useState(initialFrame.translate)
   const [shouldDisplay, setShouldDisplay] = useState(false)

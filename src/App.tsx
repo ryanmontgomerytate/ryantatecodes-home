@@ -1,4 +1,4 @@
-import React, { useState }  from 'react'
+import React, { useState } from 'react'
 import { Theme, Themes } from './theme/Theme'
 import { WindowsBar } from './windowsBar/WindowsBar'
 import styled from 'styled-components'
@@ -13,22 +13,28 @@ export const App: React.FC = () => {
   const [displayChangeTheme, setDisplayChangeTheme] = useState(false)
   const [displayProjects, setDisplayProjects] = useState(false)
   const [displayAbout, setDisplayAbout] = useState(false)
+
   return (
     <Theme theme={theme}>
       <FullPageDiv {...{ desktopBackground: theme.desktopBackground }}>
-      <GitHubIcon />
-      <MovieTrivia />
+        <GitHubIcon />
+        <MovieTrivia />
         {displayChangeTheme && (
-          <ChangeThemeWindow theme={theme} setTheme={setTheme} setDisplayChangeTheme={setDisplayChangeTheme}/>
+          <ChangeThemeWindow
+            theme={theme}
+            setTheme={setTheme}
+            setDisplayChangeTheme={setDisplayChangeTheme}
+          />
         )}
         {displayProjects && (
-          <ProjectsWindow setDisplayProjects={setDisplayProjects}/>
+          <ProjectsWindow setDisplayProjects={setDisplayProjects} />
         )}
-        {displayAbout && (
-          <AboutWindow setDisplayAbout={setDisplayAbout}/>
-        )}
-        <WindowsBar setDisplayChangeTheme={setDisplayChangeTheme} setDisplayProjects={setDisplayProjects}
-        setDisplayAbout={setDisplayAbout}/>
+        {displayAbout && <AboutWindow setDisplayAbout={setDisplayAbout} />}
+        <WindowsBar
+          setDisplayChangeTheme={setDisplayChangeTheme}
+          setDisplayProjects={setDisplayProjects}
+          setDisplayAbout={setDisplayAbout}
+        />
       </FullPageDiv>
     </Theme>
   )

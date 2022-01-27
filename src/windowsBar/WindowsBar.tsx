@@ -1,12 +1,5 @@
 import React from 'react'
-import {
-  AppBar,
-  Toolbar,
-  Button,
-  List,
-  ListItem,
-  Panel,
-} from 'react95'
+import { AppBar, Toolbar, Button, List, ListItem, Panel } from 'react95'
 import logoIMG from 'react95/dist/images/logo.png'
 
 import './WindowsBar.css'
