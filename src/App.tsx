@@ -23,24 +23,26 @@ export const App: React.FC = () => {
         </ColumnGrid1>
         <ColumnGrid2>
           <WindowGrid>
-          <WindowColumnGrid1> {displayAbout && <AboutWindow setDisplayAbout={setDisplayAbout} />}           </WindowColumnGrid1>
+            <WindowColumnGrid1>
+              {' '}
+              {displayAbout && (
+                <AboutWindow setDisplayAbout={setDisplayAbout} />
+              )}{' '}
+            </WindowColumnGrid1>
             <WindowColumnGrid2>
-                          {displayProjects && (
-              <ProjectsWindow setDisplayProjects={setDisplayProjects} />
-            )}</WindowColumnGrid2><WindowColumnGrid3>
-            
-            
-            
-            
-            
-            
-            {displayChangeTheme && (
-              <ChangeThemeWindow
-                theme={theme}
-                setTheme={setTheme}
-                setDisplayChangeTheme={setDisplayChangeTheme}
-              />
-            )}</WindowColumnGrid3>
+              {displayProjects && (
+                <ProjectsWindow setDisplayProjects={setDisplayProjects} />
+              )}
+            </WindowColumnGrid2>
+            <WindowColumnGrid3>
+              {displayChangeTheme && (
+                <ChangeThemeWindow
+                  theme={theme}
+                  setTheme={setTheme}
+                  setDisplayChangeTheme={setDisplayChangeTheme}
+                />
+              )}
+            </WindowColumnGrid3>
           </WindowGrid>
         </ColumnGrid2>
         <WindowsBar

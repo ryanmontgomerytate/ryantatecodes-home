@@ -45,11 +45,14 @@ export const AboutWindow: React.FC<Props> = ({ setDisplayAbout }) => {
               </p>
               <br />
               <Fieldset variant="flat" label="Connect with me">
-                <a href="linkedin.com/in/ryanmontgomerytate" target="_blank">
+                <a
+                  href="https://linkedin.com/in/ryanmontgomerytate"
+                  target="_blank"
+                >
                   LinkedIn - linkedin.com/in/ryanmontgomerytate
                 </a>
                 <br />
-                <a href="github.com/ryanmontgomerytate" target="_blank">
+                <a href="https://github.com/ryanmontgomerytate" target="_blank">
                   GitHub - github.com/ryanmontgomerytate
                 </a>
                 <br />
