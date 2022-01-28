@@ -2,9 +2,9 @@
   position: fixed;
   width: 0;
   height: 0;
-  left: 0;
+  right: 0;
   top: 0;
-  z-index: 2999;
+  z-index: 3000;
 }
 .iconMoveable .moveable-control-box {
   z-index: 0;

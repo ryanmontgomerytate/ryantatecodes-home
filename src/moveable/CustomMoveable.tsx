@@ -61,7 +61,6 @@ export const MoveableWrapperIcon = styled.div`
 `
 
 export const MoveableWrapperWindow = styled.div`
-  background: ___CSS_0___;
   .window-header {
     display: flex;
     align-items: center;
