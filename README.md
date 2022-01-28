@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Ryan Tate Codes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This website was created to showcase my peronsal projects and progress using a fun, [Windows 95 retro theme](https://github.com/arturbien/React95).
 
 ## Available Scripts
 
