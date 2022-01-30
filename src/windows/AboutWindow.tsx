@@ -40,8 +40,9 @@ export const AboutWindow: React.FC<Props> = ({ setDisplayAbout }) => {
               <h1>Hello world! I'm Ryan 👋 </h1>
               <br />
               <p>
-                Below, you can find links to my work history & skills, my
-                personal projects, and my contact information.
+                Welcome to my Windows 95, retro-themed site. Below, you can find
+                links to my work history & skills, my personal projects, and my
+                contact information.
               </p>
               <br />
               <Fieldset variant="flat" label="Connect with me">
@@ -56,8 +57,8 @@ export const AboutWindow: React.FC<Props> = ({ setDisplayAbout }) => {
                   GitHub - github.com/ryanmontgomerytate
                 </a>
                 <br />
-                <a href="mailto:ryanmontgomerytate@gmail.com">
-                  Email - ryanmontgomerytate@gmail.com
+                <a href="mailto:ryan.montgomery.tate@gmail.com">
+                  Email - ryan.montgomery.tate@gmail.com
                 </a>
               </Fieldset>
             </div>

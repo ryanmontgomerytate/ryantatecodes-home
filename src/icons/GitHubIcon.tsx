@@ -9,13 +9,10 @@ export const GitHubIcon: React.FC = () => {
       <div className="gitHubIcon" style={{ color: 'white' }}>
         <img
           src={require('../assets/GitHub-Mark-Light-32px.png')}
-          alt="GitHub icon for github.com/ryanmontgomerytate/ryanmontgomerytate"
+          alt="GitHub icon for github.com/ryanmontgomerytate/"
           width="50"
           onClick={() => {
-            window.open(
-              'https://github.com/ryanmontgomerytate/ryanmontgomerytate',
-              '_blank',
-            )
+            window.open('https://github.com/ryanmontgomerytate/', '_blank')
           }}
         />
         <br />
